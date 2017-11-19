@@ -8,7 +8,7 @@ module.exports = function (options) {
     const environment = env.production ? 'production' : 'development'
 
     const config = {
-        stats: true,
+        bail: env.production,
         output: {
             path: options.paths.output,
             filename: filename,
@@ -18,7 +18,8 @@ module.exports = function (options) {
             new webpack.DefinePlugin({
               'process.env.NODE_ENV': JSON.stringify(environment)
             })
-        ]
+        ],
+        stats: true
     }
 
     return merge(
