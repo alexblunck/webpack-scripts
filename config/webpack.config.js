@@ -24,9 +24,6 @@ module.exports = function (options) {
 
     return merge(
         config,
-        require('./features')(options),
-        // TODO: Switch to correct framework
-        // TODO: Add ng1
-        require('./frameworks/vanilla')(options)
+        require('./features')(options)
     )
 }

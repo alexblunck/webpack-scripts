@@ -8,6 +8,7 @@ const merge = require('webpack-merge')
 module.exports = function (options) {
     return merge(
         require('./clean')(options),
+        require('./babel')(options),
         require('./index-html')(options),
         require('./vendor-chunk')(options),
         require('./html')(options),
