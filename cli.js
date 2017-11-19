@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const rc = require('rc')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const config = require('./config/webpack.config')
@@ -12,12 +13,23 @@ const script = args[0]
 const appDir = fs.realpathSync(process.cwd())
 const pkg = JSON.parse(fs.readFileSync(path.join(appDir, 'package.json'), { encoding: 'utf-8' }))
 
+const userConfig = rc('webpack', {
+    framework: 'vanilla',
+    port: 3000,
+    browser: 'google chrome',
+    favicon: null
+})
+
 const options = {
+    framework: userConfig.framework,
     profile: false,
     env: {
         production: true
     },
     pkg: pkg,
+    port: userConfig.port,
+    browser: userConfig.browser,
+    favicon: userConfig.favicon,
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
