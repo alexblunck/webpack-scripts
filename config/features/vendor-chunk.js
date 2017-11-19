@@ -4,7 +4,7 @@
  */
 
 const webpack = require('webpack')
-const Md5HashPlugin = require('webpack-md5-hash')
+const WebpackChunkHash = require('webpack-chunk-hash')
 const InlineChunkManifestHtmlWebpackPlugin = require('inline-chunk-manifest-html-webpack-plugin')
 
 module.exports = function (options) {
@@ -23,7 +23,7 @@ module.exports = function (options) {
                 minChunks: Infinity
             }),
             // Use md5 algorithm for creating hashes
-            new Md5HashPlugin(),
+            new WebpackChunkHash(),
             // Create / inline manifest.json into index.html
             new InlineChunkManifestHtmlWebpackPlugin()
         ]
