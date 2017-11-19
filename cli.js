@@ -5,6 +5,8 @@ const path = require('path')
 const rc = require('rc')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
+const openBrowser = require('react-dev-utils/openBrowser')
+
 const config = require('./config/webpack.config')
 
 const args = process.argv.slice(2)
@@ -78,11 +80,15 @@ function profile() {
 function start() {
     options.env.production = false
 
+    const port = options.port
+    const host = 'localhost'
+    const url = `http://${host}:${port}`
+
     const compiler = webpack(config(options))
 
     const server = new WebpackDevServer(compiler, {
         hot: true,
-        host: 'localhost',
+        host: host,
         stats: 'errors-only',
         historyApiFallback: true,
         compress: true,
@@ -91,10 +97,13 @@ function start() {
         clientLogLevel: 'none'
     })
 
-    server.listen(3000, 'localhost', err => {
+    server.listen(port, host, err => {
         if (err) {
             return console.log(err)
         }
+
+        process.env.BROWSER = options.browser
+        openBrowser(url)
     })
 }
 
