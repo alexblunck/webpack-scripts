@@ -14,6 +14,7 @@ module.exports = function (options) {
         require('./sass')(options),
         require('./svg')(options),
         require('./media')(options),
+        require('./favicon')(options),
         require('./sourcemaps')(options),
         require('./uglify')(options),
         require('./compress')(options),
