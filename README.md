@@ -1,4 +1,7 @@
 # webpack-scripts
+
+[![Latest Version on NPM](https://img.shields.io/npm/v/@blunck/webpack-scripts.svg?style=flat-square)](https://www.npmjs.com/package/@blunck/webpack-scripts)
+
 Opinionated webpack scripts
 
 ## Installation
