@@ -3,6 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 const rc = require('rc')
+const chalk = require('chalk')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const openBrowser = require('react-dev-utils/openBrowser')
@@ -51,33 +52,49 @@ switch(script) {
         break
 }
 
+/**
+ * Build application.
+ */
 function build() {
+    console.log(chalk.cyan('Building application...\n'))
+
     const compiler = webpack(config(options))
 
     compiler.run((err, stats) => {
         if (err) {
-            console.error(err)
-            return
+            console.log(chalk.red.bold(err.message) + '\n')
+            process.exit(1)
         }
 
-        const str = stats.toString({
+        if (stats.hasErrors()) {
+            console.log(stats.toString('errors-only') + '\n')
+            process.exit(1)
+        }
+
+        console.log(stats.toString({
             colors: true,
             modules: false,
             children: false,
             chunks: false,
             chunkModules: false
-        })
-
-        console.log(str)
+        }) + '\n')
     })
 }
 
+/**
+ * Build & profile application.
+ */
 function profile() {
     options.profile = true
     build()
 }
 
+/**
+ * Start development server.
+ */
 function start() {
+    console.log(chalk.cyan('Starting development server...\n'))
+
     options.env.production = false
 
     const port = options.port
@@ -94,13 +111,17 @@ function start() {
         compress: true,
         inline: true,
         overlay: true,
-        clientLogLevel: 'none'
+        clientLogLevel: 'none',
+        quiet: true
     })
 
     server.listen(port, host, err => {
         if (err) {
-            return console.log(err)
+            console.log(chalk.red.bold(err.message) + '\n')
+            process.exit(1)
         }
+
+        console.log(chalk.green(`Started development server at ${url}\n`))
 
         process.env.BROWSER = options.browser
         openBrowser(url)
