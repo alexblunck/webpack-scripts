@@ -73,6 +73,7 @@ function build() {
 
         console.log(stats.toString({
             colors: true,
+            warnings: false,
             modules: false,
             children: false,
             chunks: false,
