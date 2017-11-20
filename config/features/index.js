@@ -21,6 +21,6 @@ module.exports = function (options) {
         require('./compress')(options),
         require('./zip')(options),
         require('./hot')(options),
-        require('./profile')(options),
+        require('./profile')(options)
     )
 }
