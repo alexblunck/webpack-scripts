@@ -36,7 +36,12 @@ const options = {
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
-        output: path.resolve(appDir, 'dist')
+        output: path.resolve(appDir, 'dist'),
+        resolveInAppNodeModules: request => {
+            return require.resolve(request, {
+                paths: [path.resolve(appDir, 'node_modules')]
+            })
+        }
     }
 }
 

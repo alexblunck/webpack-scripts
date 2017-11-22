@@ -44,8 +44,14 @@ module.exports = function(options) {
 
         // HMR
         if (!options.env.production) {
-            entry.app.unshift('react-hot-loader/patch')
-            babelOptions.plugins.unshift('react-hot-loader/babel')
+            // Resolve react-hot-loader package from app node_modules directory
+            entry.app.unshift(
+                options.paths.resolveInAppNodeModules('react-hot-loader/patch')
+            )
+
+            babelOptions.plugins.unshift(
+                options.paths.resolveInAppNodeModules('react-hot-loader/babel')
+            )
         }
     }
     // Framework - AngularJs
