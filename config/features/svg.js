@@ -9,12 +9,14 @@ module.exports = function (options) {
             rules: [
                 {
                     test: /\.svg$/,
-                    loader: require.resolve('svg-inline-loader'),
-                    options: {
-                        removeTags: true,
-                        // Don't remove width / height attributes
-                        removeSVGTagAttrs: false
-                    }
+                    use: [
+                        {
+                            loader: require.resolve('raw-loader')
+                        },
+                        {
+                            loader: require.resolve('svgo-loader')
+                        }
+                    ]
                 }
             ]
         }
