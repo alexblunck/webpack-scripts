@@ -68,7 +68,13 @@ function build() {
     compiler.run((err, stats) => {
         if (err) {
             console.log(chalk.red.bold(err.message) + '\n')
-            process.exit(1)
+
+            // Make sure error results in non-zero exit code
+            process.on('beforeExit', () => {
+                process.exit(1)
+            })
+
+            return
         }
 
         if (stats.hasErrors()) {
