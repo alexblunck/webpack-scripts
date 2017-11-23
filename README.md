@@ -22,13 +22,14 @@ Add scripts to you `package.json`
 ```
 
 ## Configuration
-Add a `.webpackrc` file to the root of your project. Following options are available:
+Add a `.webpackrc` file to the root of your project. Following options are default:
 ```json
 {
   "framework": "vanilla",
-  "port": "3000",
+  "port": 3000,
   "browser": "google chrome",
-  "favicon": "./src/assets/img/favicon.png"
+  "favicon": null,
+  "cssSourceMap": false
 }
 ```
 
@@ -36,6 +37,7 @@ Add a `.webpackrc` file to the root of your project. Following options are avail
 - `port` Port to start development server at
 - `browser` Browser to open development server in
 - `favicon` Relative path to image to use as favicon
+- `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
 
 ## Scripts
 
