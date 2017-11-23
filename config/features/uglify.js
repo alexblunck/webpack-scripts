@@ -4,6 +4,7 @@
  */
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = function (options) {
     // Skip on development builds
@@ -16,7 +17,8 @@ module.exports = function (options) {
             new UglifyJSPlugin({
                 sourceMap: true,
                 cache: true
-            })
+            }),
+            new OptimizeCssAssetsPlugin()
         ]
     }
 }
