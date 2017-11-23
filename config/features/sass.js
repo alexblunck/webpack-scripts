@@ -15,14 +15,25 @@ module.exports = function (options) {
     })
 
     const loaders = [
-        { loader: require.resolve('css-loader') },
+        {
+            loader: require.resolve('css-loader'),
+            options: {
+                sourceMap: options.cssSourceMap
+            }
+        },
         {
             loader: require.resolve('postcss-loader'),
             options: {
-                plugins: [autoprefixer()]
+                plugins: [autoprefixer()],
+                sourceMap: options.cssSourceMap
             }
         },
-        { loader: require.resolve('sass-loader') }
+        {
+            loader: require.resolve('sass-loader'),
+            options: {
+                sourceMap: options.cssSourceMap
+            }
+        }
     ]
 
     return {

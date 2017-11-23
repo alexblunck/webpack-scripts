@@ -20,19 +20,21 @@ const userConfig = rc('webpack', {
     framework: 'vanilla',
     port: 3000,
     browser: 'google chrome',
-    favicon: null
+    favicon: null,
+    cssSourceMap: false
 })
 
 const options = {
-    framework: userConfig.framework,
     profile: false,
     env: {
         production: true
     },
     pkg: pkg,
+    framework: userConfig.framework,
     port: userConfig.port,
     browser: userConfig.browser,
     favicon: userConfig.favicon,
+    cssSourceMap: userConfig.cssSourceMap,
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
