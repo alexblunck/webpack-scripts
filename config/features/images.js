@@ -1,18 +1,23 @@
 /**
  * Feature
- * media
+ * images
  */
+
+const ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = function (options) {
     return {
         module: {
             rules: [
                 {
-                    test: /\.(png|gif|mp4)$/,
+                    test: /\.(png|gif|jpe?g)$/,
                     loader: require.resolve('file-loader'),
                     include: options.paths.src
                 }
             ]
-        }
+        },
+        plugins: [
+            new ImageminPlugin()
+        ]
     }
 }
