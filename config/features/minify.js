@@ -1,6 +1,6 @@
 /**
  * Feature
- * uglify
+ * minify
  */
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')

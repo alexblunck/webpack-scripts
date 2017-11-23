@@ -17,7 +17,7 @@ module.exports = function (options) {
         require('./media')(options),
         require('./favicon')(options),
         require('./sourcemaps')(options),
-        require('./uglify')(options),
+        require('./minify')(options),
         require('./compress')(options),
         require('./zip')(options),
         require('./hot')(options),
