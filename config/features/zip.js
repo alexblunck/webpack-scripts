@@ -21,7 +21,8 @@ module.exports = function (options) {
                 exclude: [
                     /(vendor|manifest).*map/,
                     /.*css\.map/,
-                    /manifest\.json/
+                    /manifest\.json/,
+                    /.*\.cache/
                 ]
             })
         ]
