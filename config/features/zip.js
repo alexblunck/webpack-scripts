@@ -12,12 +12,21 @@ module.exports = function (options) {
         return
     }
 
-    const commit = git(options.paths.app).sha.substr(0, 7)
+    const sha = git(options.paths.app).sha
+    const commit = sha ? sha.substr(0, 7) : null
+
+    let filename = options.pkg.name
+
+    if (commit) {
+        filename += `-${commit}`
+    }
+
+    filename += '.zip'
 
     return {
         plugins: [
             new ZipPlugin({
-                filename: `${options.pkg.name}-${commit}.zip`,
+                filename,
                 exclude: [
                     /(vendor|manifest).*map/,
                     /.*css\.map/,
