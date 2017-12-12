@@ -12,7 +12,8 @@ module.exports = function (options) {
         output: {
             path: options.paths.output,
             filename: filename,
-            chunkFilename: filename
+            chunkFilename: filename,
+            publicPath: '/'
         },
         plugins: [
             new webpack.DefinePlugin({
