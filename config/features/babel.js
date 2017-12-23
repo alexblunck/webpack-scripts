@@ -17,7 +17,8 @@ module.exports = function(options) {
             [require.resolve('babel-preset-env'), {
                 modules: false
             }],
-            require.resolve('babel-preset-react')
+            require.resolve('babel-preset-react'),
+            require.resolve('babel-preset-stage-3')
         ],
         plugins: [
             require.resolve('babel-plugin-syntax-dynamic-import')
