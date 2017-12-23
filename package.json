@@ -1,6 +1,6 @@
 {
   "name": "@blunck/webpack-scripts",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Opinionated webpack scripts",
   "main": "cli.js",
   "bin": {
