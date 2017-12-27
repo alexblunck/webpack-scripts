@@ -43,16 +43,12 @@ module.exports = function(options) {
             require.resolve('babel-plugin-inline-react-svg')
         )
 
-        // HMR
-        if (!options.env.production) {
-            // Resolve react-hot-loader package from app node_modules directory
-            entry.app.unshift(
-                options.paths.resolveInAppNodeModules('react-hot-loader/patch')
-            )
-
-            babelOptions.plugins.unshift(
-                options.paths.resolveInAppNodeModules('react-hot-loader/babel')
-            )
+        // react-hot-loader
+        try {
+            const plugin = options.paths.resolveInAppNodeModules('react-hot-loader/babel')
+            babelOptions.plugins.unshift(plugin)
+        } catch (e) {
+            //
         }
     }
     // Framework - AngularJs
