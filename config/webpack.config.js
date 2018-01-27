@@ -15,6 +15,9 @@ module.exports = function (options) {
             chunkFilename: filename,
             publicPath: '/'
         },
+        resolve: {
+            symlinks: false
+        },
         plugins: [
             new webpack.DefinePlugin({
               'process.env.NODE_ENV': JSON.stringify(environment)
