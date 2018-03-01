@@ -12,6 +12,7 @@ module.exports = function (options) {
         require('./index-html')(options),
         require('./vendor-chunk')(options),
         require('./html')(options),
+        require('./markdown')(options),
         require('./sass')(options),
         require('./svg')(options),
         require('./files')(options),
