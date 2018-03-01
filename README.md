@@ -36,7 +36,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 - `framework` Javascript framework that is used: "vanilla", "react" or "ng1"
 - `port` Port to start development server at
 - `browser` Browser to open development server in
-- `favicon` Relative path to image to use as favicon
+- `favicon` Relative path to favicon.ico to copy to `dist`
 - `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
 
 ## Scripts

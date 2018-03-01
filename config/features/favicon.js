@@ -3,31 +3,18 @@
  * favicon
  */
 
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = function (options) {
-    if (!options.favicon) {
+    if (!options.env.production || !options.favicon) {
         return
     }
 
     return {
         plugins: [
-            new FaviconsWebpackPlugin({
-                logo: options.favicon,
-                prefix: '[hash]-',
-                icons: {
-                    android: false,
-                    appleIcon: false,
-                    appleStartup: false,
-                    coast: false,
-                    favicons: true,
-                    firefox: false,
-                    opengraph: false,
-                    twitter: false,
-                    yandex: false,
-                    windows: false
-                }
-            })
+            new CopyWebpackPlugin([{
+                from: options.favicon
+            }])
         ]
     }
 }
