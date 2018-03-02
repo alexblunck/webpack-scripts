@@ -13,8 +13,7 @@ module.exports = function (options) {
 
     return {
         plugins: [
-            new webpack.NamedModulesPlugin(),
-            new webpack.HotModuleReplacementPlugin(),
+            new webpack.HotModuleReplacementPlugin()
         ]
     }
 }
