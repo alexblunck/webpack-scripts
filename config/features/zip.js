@@ -28,10 +28,8 @@ module.exports = function (options) {
             new ZipPlugin({
                 filename,
                 exclude: [
-                    /(vendor|manifest).*map/,
-                    /.*css\.map/,
-                    /manifest\.json/,
-                    /.*\.cache/
+                    /vendor.*map/,
+                    /.*css\.map/
                 ]
             })
         ]
