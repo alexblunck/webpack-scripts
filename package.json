@@ -49,15 +49,14 @@
     "postcss-loader": "2.1.1",
     "raw-loader": "0.5.1",
     "rc": "1.2.5",
-    "react-dev-utils": "5.0.0",
     "sass-loader": "6.0.7",
     "style-loader": "0.20.2",
     "svgo": "1.0.5",
     "svgo-loader": "2.1.0",
     "webpack": "4.1.0",
     "webpack-bundle-analyzer": "2.11.1",
-    "webpack-dev-server": "3.1.0",
     "webpack-merge": "4.1.2",
+    "webpack-serve": "0.2.0",
     "zip-webpack-plugin": "3.0.0"
   },
   "devDependencies": {

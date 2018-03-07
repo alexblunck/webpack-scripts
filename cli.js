@@ -5,8 +5,7 @@ const path = require('path')
 const rc = require('rc')
 const chalk = require('chalk')
 const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-const openBrowser = require('react-dev-utils/openBrowser')
+const serve = require('webpack-serve')
 
 const config = require('./config/webpack.config')
 
@@ -112,33 +111,23 @@ function start() {
     options.env.production = false
 
     const port = options.port
-    const host = 'localhost'
-    const url = `http://${host}:${port}`
+    const url = `http://localhost:${port}`
 
-    const compiler = webpack(config(options))
-
-    const server = new WebpackDevServer(compiler, {
-        hot: true,
-        host: host,
-        stats: 'errors-only',
-        historyApiFallback: true,
-        compress: true,
-        inline: true,
-        overlay: true,
-        clientLogLevel: 'none',
-        quiet: true
-    })
-
-    server.listen(port, host, err => {
-        if (err) {
-            console.log(chalk.red.bold(err.message) + '\n')
-            process.exit(1)
+    serve({
+        config: config(options),
+        logLevel: 'error',
+        port: port,
+        hot: {
+            logLevel: 'error'
+        },
+        open: {
+            app: options.browser
+        },
+        on: {
+            listening: () => {
+                console.log(chalk.green(`Started development server at ${url}\n`))
+            }
         }
-
-        console.log(chalk.green(`Started development server at ${url}\n`))
-
-        process.env.BROWSER = options.browser
-        openBrowser(url)
     })
 }
 
