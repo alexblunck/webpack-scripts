@@ -25,14 +25,6 @@ module.exports = function(options) {
         ]
     }
 
-    // HMR
-    if (!options.env.production) {
-        entry.app.unshift(
-            require.resolve('webpack-dev-server/client') + '?/',
-            require.resolve('webpack/hot/dev-server')
-        )
-    }
-
     // Framework - React
     if (options.framework === 'react') {
         babelOptions.presets.push(
