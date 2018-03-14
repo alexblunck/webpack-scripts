@@ -18,7 +18,6 @@ module.exports = function (options) {
         require('./images')(options),
         require('./favicon')(options),
         require('./sourcemaps')(options),
-        require('./minify')(options),
         require('./compress')(options),
         require('./zip')(options),
         require('./profile')(options)
