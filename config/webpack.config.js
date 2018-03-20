@@ -24,8 +24,7 @@ module.exports = function (options) {
         },
         plugins: [
             new CaseSensitivePathsPlugin()
-        ],
-        stats: true
+        ]
     }
 
     return merge(
