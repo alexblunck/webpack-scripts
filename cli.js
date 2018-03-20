@@ -85,12 +85,18 @@ function build() {
 
         console.log(stats.toString({
             colors: true,
+            assetsSort: 'name',
+            cachedAssets: false,
             warnings: false,
             modules: false,
             children: false,
             chunks: false,
-            chunkModules: false
+            chunkModules: false,
+            entrypoints: false,
+            performance: false
         }) + '\n')
+
+        console.log(chalk.green(`Build finished\n`))
     })
 }
 
@@ -117,6 +123,10 @@ function start() {
         config: config(options),
         logLevel: 'error',
         port: port,
+        dev: {
+            publicPath: '/',
+            logLevel: 'error'
+        },
         hot: {
             logLevel: 'error'
         },
