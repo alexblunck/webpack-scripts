@@ -6,6 +6,8 @@ const rc = require('rc')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const serve = require('webpack-serve')
+const history = require('connect-history-api-fallback')
+const convert = require('koa-connect')
 
 const config = require('./config/webpack.config')
 
@@ -132,6 +134,9 @@ function start() {
         },
         open: {
             app: options.browser
+        },
+        add: (app) => {
+            app.use(convert(history()))
         },
         on: {
             listening: () => {
