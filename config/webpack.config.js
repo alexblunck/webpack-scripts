@@ -10,7 +10,7 @@ module.exports = function (options) {
         bail: env.production,
         output: {
             path: options.paths.output,
-            filename: env.production ? '[name].[chunkhash].js' : '[name].js',
+            filename: env.production ? '[name].[contenthash].js' : '[name].js',
             publicPath: '/'
         },
         optimization: {

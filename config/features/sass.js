@@ -10,8 +10,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 module.exports = function (options) {
     const plugins = [
         new MiniCssExtractPlugin({
-            // TODO: Update to [contenthash] once supported
-            filename: '[name].[chunkhash].css'
+            filename: '[name].[contenthash].css'
         })
     ]
 
