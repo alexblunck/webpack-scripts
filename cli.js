@@ -151,6 +151,7 @@ function startWebpackServe() {
             app: options.browser
         },
         add: (app) => {
+            // History API fallback
             app.use(convert(history()))
         },
         on: {
