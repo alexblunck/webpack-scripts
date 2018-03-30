@@ -4,10 +4,12 @@ const fs = require('fs')
 const path = require('path')
 const rc = require('rc')
 const chalk = require('chalk')
+const opn = require('opn')
 const webpack = require('webpack')
 const serve = require('webpack-serve')
 const history = require('connect-history-api-fallback')
 const convert = require('koa-connect')
+const WebpackDevServer = require('webpack-dev-server')
 
 const config = require('./config/webpack.config')
 
@@ -22,7 +24,8 @@ const userConfig = rc('webpack', {
     port: 3000,
     browser: 'google chrome',
     favicon: null,
-    cssSourceMap: false
+    cssSourceMap: false,
+    devServer: 'webpack-dev-server' // "webpack-serve" or "webpack-dev-server"
 })
 
 const options = {
@@ -36,6 +39,7 @@ const options = {
     browser: userConfig.browser,
     favicon: userConfig.favicon,
     cssSourceMap: userConfig.cssSourceMap,
+    devServer: userConfig.devServer,
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
@@ -118,6 +122,17 @@ function start() {
 
     options.env.production = false
 
+    if (options.devServer === 'webpack-serve') {
+        startWebpackServe()
+    } else if (options.devServer === 'webpack-dev-server') {
+        startWebpackDevServer()
+    }
+}
+
+/**
+ * Start development server using webpack-serve.
+ */
+function startWebpackServe() {
     const port = options.port
     const url = `http://localhost:${port}`
 
@@ -146,3 +161,34 @@ function start() {
     })
 }
 
+/**
+ * Start development server using webpack-dev-server.
+ */
+function startWebpackDevServer() {
+    const compiler = webpack(config(options))
+    const host = 'localhost'
+    const url = `http://${host}:${options.port}`
+
+    const server = new WebpackDevServer(compiler, {
+        hot: true,
+        host: host,
+        stats: 'errors-only',
+        historyApiFallback: true,
+        compress: true,
+        inline: true,
+        overlay: true,
+        clientLogLevel: 'none',
+        quiet: true
+    })
+
+    server.listen(options.port, host, err => {
+        if (err) {
+            console.log(chalk.red.bold(err.message) + '\n')
+            process.exit(1)
+        }
+
+        console.log(chalk.green(`Started development server at ${url}\n`))
+
+        opn(url, { app: options.browser })
+    })
+}

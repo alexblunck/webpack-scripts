@@ -20,6 +20,7 @@ module.exports = function (options) {
         require('./sourcemaps')(options),
         require('./compress')(options),
         require('./zip')(options),
+        require('./hot')(options),
         require('./profile')(options)
     )
 }
