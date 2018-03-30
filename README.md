@@ -29,7 +29,8 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
   "port": 3000,
   "browser": "google chrome",
   "favicon": null,
-  "cssSourceMap": false
+  "cssSourceMap": false,
+  "devServer": "webpack-dev-server"
 }
 ```
 
@@ -38,6 +39,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 - `browser` Browser to open development server in
 - `favicon` Relative path to favicon.ico to copy to `dist`
 - `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
+- `devServer` Development server to use: "webpack-dev-server" or "webpack-serve"
 
 ## Scripts
 
