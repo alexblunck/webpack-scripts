@@ -1,6 +1,6 @@
 /**
  * Feature
- * sass
+ * css
  */
 
 const autoprefixer = require('autoprefixer')
@@ -19,13 +19,6 @@ module.exports = function (options) {
             options: {
                 plugins: [autoprefixer()],
                 sourceMap: options.cssSourceMap
-            }
-        },
-        {
-            loader: require.resolve('sass-loader'),
-            options: {
-                sourceMap: options.cssSourceMap,
-                quiet: true
             }
         }
     ]
@@ -47,8 +40,7 @@ module.exports = function (options) {
         module: {
             rules: [
                 {
-                    test: /\.scss$/,
-                    exclude: /node_modules/,
+                    test: /\.css$/,
                     use: loaders
                 }
             ]
