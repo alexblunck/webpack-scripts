@@ -139,6 +139,7 @@ function startWebpackServe() {
     serve({
         config: config(options),
         logLevel: 'error',
+        clipboard: false,
         port: port,
         dev: {
             publicPath: '/',
@@ -147,9 +148,6 @@ function startWebpackServe() {
         hot: {
             logLevel: 'error'
         },
-        open: {
-            app: options.browser
-        },
         add: (app) => {
             // History API fallback
             app.use(convert(history()))
@@ -157,6 +155,7 @@ function startWebpackServe() {
         on: {
             listening: () => {
                 console.log(chalk.green(`Started development server at ${url}\n`))
+                opn(url, { app: options.browser })
             }
         }
     })
