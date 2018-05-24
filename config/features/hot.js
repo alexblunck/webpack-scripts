@@ -6,8 +6,8 @@
 const webpack = require('webpack')
 
 module.exports = function (options) {
-    // Skip on production builds / webpack-dev-server configuration
-    if (options.env.production || options.devServer !== 'webpack-dev-server') {
+    // Skip on production builds
+    if (options.env.production) {
         return
     }
 

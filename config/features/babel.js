@@ -26,7 +26,7 @@ module.exports = function(options) {
     }
 
     // HMR
-    if (!options.env.production && options.devServer === 'webpack-dev-server') {
+    if (!options.env.production) {
         entry.app.unshift(
             require.resolve('webpack-dev-server/client') + '?/',
             require.resolve('webpack/hot/dev-server')
