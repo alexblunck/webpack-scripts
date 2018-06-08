@@ -26,6 +26,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 ```json
 {
   "framework": "vanilla",
+  "host": "localhost",
   "port": 3000,
   "browser": "google chrome",
   "favicon": null,

@@ -18,6 +18,7 @@ const pkg = JSON.parse(fs.readFileSync(path.join(appDir, 'package.json'), { enco
 
 const userConfig = rc('webpack', {
     framework: 'vanilla',
+    host: 'localhost',
     port: 3000,
     browser: 'google chrome',
     favicon: null,
@@ -32,6 +33,7 @@ const options = {
     },
     pkg: pkg,
     framework: userConfig.framework,
+    host: userConfig.host,
     port: userConfig.port,
     browser: userConfig.browser,
     favicon: userConfig.favicon,
@@ -120,7 +122,7 @@ function start() {
     options.env.production = false
 
     const compiler = webpack(config(options))
-    const host = 'localhost'
+    const host = options.host
     const url = `http://${host}:${options.port}`
 
     const server = new WebpackDevServer(compiler, {
