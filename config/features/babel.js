@@ -21,6 +21,7 @@ module.exports = function(options) {
             require.resolve('babel-preset-stage-3')
         ],
         plugins: [
+            require.resolve('babel-plugin-lodash'),
             require.resolve('babel-plugin-syntax-dynamic-import')
         ]
     }
