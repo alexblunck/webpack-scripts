@@ -21,6 +21,17 @@ Add scripts to you `package.json`
 }
 ```
 
+## Requirements
+The webpack configuration expects the root of your project to contain a `src` directory with an `index.js` & `index.html` file:
+```
+src
+  index.js
+  index.html
+package.json
+.webpackrc
+
+```
+
 ## Configuration
 Add a `.webpackrc` file to the root of your project. Following options are default:
 ```json
