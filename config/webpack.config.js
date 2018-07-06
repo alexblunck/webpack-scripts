@@ -5,6 +5,15 @@ const merge = require('webpack-merge')
 module.exports = function (options) {
     const env = options.env
 
+    const alias = {}
+
+    if (options.alias) {
+        Object.keys(options.alias).map(key => {
+            const value = options.alias[key]
+            alias[key] = path.resolve(options.paths.app, value)
+        })
+    }
+
     const config = {
         mode: env.production ? 'production' : 'development',
         bail: env.production,
@@ -20,7 +29,8 @@ module.exports = function (options) {
         },
         resolve: {
             symlinks: false,
-            modules: ['node_modules', path.resolve(__dirname, '../node_modules')]
+            modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
+            alias: alias
         },
         plugins: [
             new CaseSensitivePathsPlugin()

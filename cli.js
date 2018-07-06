@@ -23,6 +23,7 @@ const userConfig = rc('webpack', {
     browser: 'google chrome',
     favicon: null,
     cssSourceMap: false,
+    alias: null,
     devServer: 'webpack-dev-server' // "webpack-serve" or "webpack-dev-server"
 })
 
@@ -38,6 +39,7 @@ const options = {
     browser: userConfig.browser,
     favicon: userConfig.favicon,
     cssSourceMap: userConfig.cssSourceMap,
+    alias: userConfig.alias,
     devServer: userConfig.devServer,
     paths: {
         app: appDir,

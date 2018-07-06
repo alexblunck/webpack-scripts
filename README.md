@@ -30,7 +30,8 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
   "port": 3000,
   "browser": "google chrome",
   "favicon": null,
-  "cssSourceMap": false
+  "cssSourceMap": false,
+  "alias": null
 }
 ```
 
@@ -39,6 +40,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 - `browser` Browser to open development server in
 - `favicon` Relative path to favicon.ico to copy to `dist`
 - `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
+- `alias` Create aliases to import or require certain modules more easily. See [Webpack Documentation](https://webpack.js.org/configuration/resolve/#resolve-alias) for more info
 
 ## Scripts
 
