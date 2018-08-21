@@ -40,10 +40,6 @@ module.exports = function(options) {
             require.resolve('babel-preset-react')
         )
 
-        babelOptions.plugins.push(
-            require.resolve('babel-plugin-inline-react-svg')
-        )
-
         // react-hot-loader
         try {
             const plugin = options.paths.resolveInAppNodeModules('react-hot-loader/babel')
