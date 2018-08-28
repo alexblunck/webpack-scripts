@@ -14,13 +14,13 @@ module.exports = function(options) {
         compact: true,
         cacheDirectory: true,
         presets: [
-            [require.resolve('babel-preset-env'), {
+            [require.resolve('@babel/preset-env'), {
                 modules: false
-            }],
-            require.resolve('babel-preset-react'),
-            require.resolve('babel-preset-stage-3')
+            }]
         ],
         plugins: [
+            require.resolve('@babel/plugin-proposal-class-properties'),
+            require.resolve('@babel/plugin-proposal-object-rest-spread'),
             require.resolve('babel-plugin-lodash'),
             require.resolve('babel-plugin-syntax-dynamic-import')
         ]
@@ -37,7 +37,7 @@ module.exports = function(options) {
     // Framework - React
     if (options.framework === 'react') {
         babelOptions.presets.push(
-            require.resolve('babel-preset-react')
+            require.resolve('@babel/preset-react')
         )
 
         // react-hot-loader
