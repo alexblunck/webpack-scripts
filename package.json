@@ -7,7 +7,7 @@
     "webpack-scripts": "./cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"No test specified\" && exit 0",
     "lint": " eslint cli.js config/**"
   },
   "repository": {
