@@ -136,7 +136,13 @@ function start() {
         inline: true,
         overlay: true,
         clientLogLevel: 'none',
-        quiet: true
+        quiet: true,
+        before: app => {
+            // Return 204 - No Content response for favicon.ico requests
+            app.get('/favicon.ico', (req, res) => {
+                res.status(204).send()
+            })
+        }
     })
 
     server.listen(options.port, host, err => {
