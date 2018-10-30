@@ -24,8 +24,7 @@ module.exports = function (options) {
         {
             loader: require.resolve('sass-loader'),
             options: {
-                implementation: require("dart-sass"),
-                sourcemap: options.cssSourceMap,
+                sourceMap: options.cssSourceMap,
                 quiet: true
             }
         }
