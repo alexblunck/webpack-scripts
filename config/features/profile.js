@@ -3,9 +3,9 @@
  * profile
  */
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-module.exports = function (options) {
+module.exports = function(options) {
     if (!options.profile) {
         return
     }

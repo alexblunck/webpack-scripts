@@ -5,7 +5,7 @@
 
 const merge = require('webpack-merge')
 
-module.exports = function (options) {
+module.exports = function(options) {
     return merge(
         require('./clean')(options),
         require('./babel')(options),

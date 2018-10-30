@@ -3,10 +3,10 @@
  * extract-css
  */
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-module.exports = function (options) {
+module.exports = function(options) {
     const plugins = [
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
@@ -15,9 +15,7 @@ module.exports = function (options) {
 
     // Minify in production
     if (options.env.production) {
-        plugins.push(
-            new OptimizeCssAssetsPlugin()
-        )
+        plugins.push(new OptimizeCssAssetsPlugin())
     }
 
     return {

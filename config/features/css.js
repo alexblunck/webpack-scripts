@@ -4,9 +4,9 @@
  */
 
 const autoprefixer = require('autoprefixer')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-module.exports = function (options) {
+module.exports = function(options) {
     const loaders = [
         {
             loader: require.resolve('css-loader'),
@@ -25,9 +25,7 @@ module.exports = function (options) {
 
     // Extract css in production
     if (options.env.production) {
-        loaders.unshift(
-            MiniCssExtractPlugin.loader
-        )
+        loaders.unshift(MiniCssExtractPlugin.loader)
     }
     // Use style loader in development
     else {

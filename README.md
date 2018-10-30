@@ -11,6 +11,7 @@ npm install --save-dev @blunck/webpack-scripts
 ```
 
 Add scripts to you `package.json`
+
 ```json
 {
   "scripts": {
@@ -22,18 +23,21 @@ Add scripts to you `package.json`
 ```
 
 ## Requirements
+
 The webpack configuration expects the root of your project to contain a `src` directory with an `index.js` & `index.html` file:
+
 ```
 src
   index.js
   index.html
 package.json
 .webpackrc
-
 ```
 
 ## Configuration
+
 Add a `.webpackrc` file to the root of your project. Following options are default:
+
 ```json
 {
   "framework": "vanilla",
@@ -60,20 +64,26 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 ## Scripts
 
 ### Build
+
 Build a production version of your application
+
 ```bash
 npm run build
 ```
 
 ### Start
+
 Start a development server & re-compile / reload on changes. (HMR support for react)
+
 ```bash
 npm run start
 ```
 
 ### Profile
+
 Build a production version of your application & open a page
 with information about your bundle.
+
 ```bash
 npm run profile
 ```

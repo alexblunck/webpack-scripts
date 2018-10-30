@@ -5,7 +5,7 @@
 
 const webpack = require('webpack')
 
-module.exports = function (options) {
+module.exports = function(options) {
     // Production
     if (options.env.production) {
         return {

@@ -2,7 +2,7 @@ const path = require('path')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 const merge = require('webpack-merge')
 
-module.exports = function (options) {
+module.exports = function(options) {
     const env = options.env
 
     const alias = {}
@@ -29,16 +29,14 @@ module.exports = function (options) {
         },
         resolve: {
             symlinks: false,
-            modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
+            modules: [
+                'node_modules',
+                path.resolve(__dirname, '../node_modules')
+            ],
             alias: alias
         },
-        plugins: [
-            new CaseSensitivePathsPlugin()
-        ]
+        plugins: [new CaseSensitivePathsPlugin()]
     }
 
-    return merge(
-        config,
-        require('./features')(options)
-    )
+    return merge(config, require('./features')(options))
 }

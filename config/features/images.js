@@ -5,7 +5,7 @@
 
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 
-module.exports = function (options) {
+module.exports = function(options) {
     return {
         module: {
             rules: [
@@ -16,8 +16,6 @@ module.exports = function (options) {
                 }
             ]
         },
-        plugins: [
-            new ImageminPlugin()
-        ]
+        plugins: [new ImageminPlugin()]
     }
 }

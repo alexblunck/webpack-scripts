@@ -3,7 +3,7 @@
  * svg
  */
 
-module.exports = function (options) {
+module.exports = function(options) {
     return {
         module: {
             rules: [

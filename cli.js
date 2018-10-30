@@ -14,7 +14,9 @@ const args = process.argv.slice(2)
 const script = args[0]
 
 const appDir = fs.realpathSync(process.cwd())
-const pkg = JSON.parse(fs.readFileSync(path.join(appDir, 'package.json'), { encoding: 'utf-8' }))
+const pkg = JSON.parse(
+    fs.readFileSync(path.join(appDir, 'package.json'), { encoding: 'utf-8' })
+)
 
 const userConfig = rc('webpack', {
     framework: 'vanilla',
@@ -55,7 +57,7 @@ const options = {
     }
 }
 
-switch(script) {
+switch (script) {
     case 'build':
         build()
         break
@@ -92,18 +94,20 @@ function build() {
             process.exit(1)
         }
 
-        console.log(stats.toString({
-            colors: true,
-            assetsSort: 'name',
-            cachedAssets: false,
-            warnings: false,
-            modules: false,
-            children: false,
-            chunks: false,
-            chunkModules: false,
-            entrypoints: false,
-            performance: false
-        }) + '\n')
+        console.log(
+            stats.toString({
+                colors: true,
+                assetsSort: 'name',
+                cachedAssets: false,
+                warnings: false,
+                modules: false,
+                children: false,
+                chunks: false,
+                chunkModules: false,
+                entrypoints: false,
+                performance: false
+            }) + '\n'
+        )
 
         console.log(chalk.green(`Build finished\n`))
     })

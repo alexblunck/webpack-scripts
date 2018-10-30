@@ -5,18 +5,19 @@
 
 module.exports = function(options) {
     const entry = {
-        app: [
-            './src/index.js'
-        ]
+        app: ['./src/index.js']
     }
 
     const babelOptions = {
         compact: true,
         cacheDirectory: true,
         presets: [
-            [require.resolve('@babel/preset-env'), {
-                modules: false
-            }]
+            [
+                require.resolve('@babel/preset-env'),
+                {
+                    modules: false
+                }
+            ]
         ],
         plugins: [
             require.resolve('@babel/plugin-proposal-class-properties'),
@@ -36,13 +37,13 @@ module.exports = function(options) {
 
     // Framework - React
     if (options.framework === 'react') {
-        babelOptions.presets.push(
-            require.resolve('@babel/preset-react')
-        )
+        babelOptions.presets.push(require.resolve('@babel/preset-react'))
 
         // react-hot-loader
         try {
-            const plugin = options.paths.resolveInAppNodeModules('react-hot-loader/babel')
+            const plugin = options.paths.resolveInAppNodeModules(
+                'react-hot-loader/babel'
+            )
             babelOptions.plugins.unshift(plugin)
         } catch (e) {
             //

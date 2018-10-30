@@ -6,7 +6,7 @@
 const git = require('git-repo-info')
 const ZipPlugin = require('zip-webpack-plugin')
 
-module.exports = function (options) {
+module.exports = function(options) {
     // Skip on development builds or if disabled
     if (!options.env.production || !options.zip) {
         return
@@ -27,10 +27,7 @@ module.exports = function (options) {
         plugins: [
             new ZipPlugin({
                 filename,
-                exclude: [
-                    /vendor.*map/,
-                    /.*css\.map/
-                ]
+                exclude: [/vendor.*map/, /.*css\.map/]
             })
         ]
     }

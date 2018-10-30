@@ -14,11 +14,7 @@
     "type": "git",
     "url": "git+https://alexblunck@github.com/alexblunck/webpack-scripts.git"
   },
-  "keywords": [
-    "webpack",
-    "react",
-    "angularjs"
-  ],
+  "keywords": ["webpack", "react", "angularjs"],
   "author": "Alexander Blunck",
   "license": "MIT",
   "dependencies": {
