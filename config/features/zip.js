@@ -7,8 +7,8 @@ const git = require('git-repo-info')
 const ZipPlugin = require('zip-webpack-plugin')
 
 module.exports = function (options) {
-    // Skip on development builds
-    if (!options.env.production) {
+    // Skip on development builds or if disabled
+    if (!options.env.production || !options.zip) {
         return
     }
 

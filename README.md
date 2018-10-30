@@ -42,7 +42,8 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
   "browser": "google chrome",
   "favicon": null,
   "cssSourceMap": false,
-  "alias": null
+  "alias": null,
+  "zip": false
 }
 ```
 
@@ -52,6 +53,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 - `favicon` Relative path to favicon.ico to copy to `dist`
 - `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
 - `alias` Create aliases to import or require certain modules more easily. See [Webpack Documentation](https://webpack.js.org/configuration/resolve/#resolve-alias) for more info
+- `zip` If true create zip archive with build artifacts with following name: `PROJECT_NAME-GIT_COMMIT_HASH.zip`
 
 ## Scripts
 

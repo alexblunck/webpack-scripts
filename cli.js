@@ -24,6 +24,7 @@ const userConfig = rc('webpack', {
     favicon: null,
     cssSourceMap: false,
     alias: null,
+    zip: false
 })
 
 const options = {
@@ -39,6 +40,7 @@ const options = {
     favicon: userConfig.favicon,
     cssSourceMap: userConfig.cssSourceMap,
     alias: userConfig.alias,
+    zip: userConfig.zip,
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
