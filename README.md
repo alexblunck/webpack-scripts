@@ -43,7 +43,8 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
   "favicon": null,
   "cssSourceMap": false,
   "alias": null,
-  "zip": false
+  "zip": false,
+  "bugsnagApiKey": null
 }
 ```
 
@@ -54,6 +55,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 - `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
 - `alias` Create aliases to import or require certain modules more easily. See [Webpack Documentation](https://webpack.js.org/configuration/resolve/#resolve-alias) for more info
 - `zip` If true create zip archive with build artifacts with following name: `PROJECT_NAME-GIT_COMMIT_HASH.zip`
+- `bugsnagApiKey` If set upload source maps to bugsnag
 
 ## Scripts
 
