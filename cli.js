@@ -24,7 +24,6 @@ const userConfig = rc('webpack', {
     favicon: null,
     cssSourceMap: false,
     alias: null,
-    devServer: 'webpack-dev-server' // "webpack-serve" or "webpack-dev-server"
 })
 
 const options = {
@@ -40,7 +39,6 @@ const options = {
     favicon: userConfig.favicon,
     cssSourceMap: userConfig.cssSourceMap,
     alias: userConfig.alias,
-    devServer: userConfig.devServer,
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
