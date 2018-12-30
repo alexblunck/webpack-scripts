@@ -6,10 +6,6 @@
   "bin": {
     "webpack-scripts": "./cli.js"
   },
-  "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
-    "lint": " eslint cli.js config/**"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://alexblunck@github.com/alexblunck/webpack-scripts.git"
@@ -61,8 +57,5 @@
     "webpack-dev-server": "3.1.10",
     "webpack-merge": "4.1.4",
     "zip-webpack-plugin": "3.0.0"
-  },
-  "devDependencies": {
-    "eslint": "5.9.0"
   }
 }
