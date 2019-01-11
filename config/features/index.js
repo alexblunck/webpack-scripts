@@ -18,7 +18,7 @@ module.exports = function(options) {
         require('./svg')(options),
         require('./files')(options),
         require('./images')(options),
-        require('./favicon')(options),
+        require('./copy')(options),
         require('./sourcemaps')(options),
         require('./compress')(options),
         require('./zip')(options),

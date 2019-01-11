@@ -44,7 +44,7 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
   "host": "localhost",
   "port": 3000,
   "browser": "google chrome",
-  "favicon": null,
+  "copy": null,
   "cssSourceMap": false,
   "alias": null,
   "zip": false,
@@ -55,11 +55,12 @@ Add a `.webpackrc` file to the root of your project. Following options are defau
 - `framework` Javascript framework that is used: "vanilla", "react" or "ng1"
 - `port` Port to start development server at
 - `browser` Browser to open development server in
-- `favicon` Relative path to favicon.ico to copy to `dist`
-- `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
-- `alias` Create aliases to import or require certain modules more easily. See [Webpack Documentation](https://webpack.js.org/configuration/resolve/#resolve-alias) for more info
-- `zip` If true create zip archive with build artifacts with following name: `PROJECT_NAME-GIT_COMMIT_HASH.zip`
-- `bugsnagApiKey` If set upload source maps to bugsnag
+- `copy` Array of patterns to copy to `dist`. See [Copy Webpack Plugin](https://github.com/webpack-contrib/copy-webpack-plugin#patterns) for more info
+
+* `cssSourceMap` Enable css / scss source maps (Causes style flash on initial load when running development server)
+* `alias` Create aliases to import or require certain modules more easily. See [Webpack Documentation](https://webpack.js.org/configuration/resolve/#resolve-alias) for more info
+* `zip` If true create zip archive with build artifacts with following name: `PROJECT_NAME-GIT_COMMIT_HASH.zip`
+* `bugsnagApiKey` If set upload source maps to bugsnag
 
 ## Scripts
 
