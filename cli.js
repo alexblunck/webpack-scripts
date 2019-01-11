@@ -144,10 +144,10 @@ function start() {
         clientLogLevel: 'none',
         quiet: true,
         before: app => {
-            // Return 204 - No Content response for favicon.ico requests
-            app.get('/favicon.ico', (req, res) => {
-                res.status(204).send()
-            })
+            // Intercept request
+            // app.get('/', (req, res) => {
+            //     res.status(204).send()
+            // })
         }
     })
 
