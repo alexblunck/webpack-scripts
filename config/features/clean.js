@@ -12,11 +12,6 @@ module.exports = function(options) {
     }
 
     return {
-        plugins: [
-            new CleanPlugin(['dist'], {
-                root: options.paths.app,
-                verbose: false
-            })
-        ]
+        plugins: [new CleanPlugin()]
     }
 }
