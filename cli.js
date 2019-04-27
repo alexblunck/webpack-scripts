@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const rc = require('rc')
 const chalk = require('chalk')
-const opn = require('opn')
+const open = require('open')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 
@@ -159,6 +159,6 @@ function start() {
 
         console.log(chalk.green(`Started development server at ${url}\n`))
 
-        opn(url, { app: options.browser })
+        open(url, { app: options.browser })
     })
 }
