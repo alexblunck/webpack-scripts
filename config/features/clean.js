@@ -3,7 +3,7 @@
  * clean
  */
 
-const CleanPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = function(options) {
     // Skip on development builds
@@ -12,6 +12,6 @@ module.exports = function(options) {
     }
 
     return {
-        plugins: [new CleanPlugin()]
+        plugins: [new CleanWebpackPlugin()]
     }
 }

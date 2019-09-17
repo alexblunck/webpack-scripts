@@ -25,7 +25,9 @@ module.exports = function(options) {
             loader: require.resolve('sass-loader'),
             options: {
                 sourceMap: options.cssSourceMap,
-                quiet: true
+                sassOptions: {
+                    quiet: true
+                }
             }
         }
     ]
