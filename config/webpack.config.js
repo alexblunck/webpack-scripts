@@ -20,7 +20,7 @@ module.exports = function(options) {
         output: {
             path: options.paths.output,
             filename: env.production ? '[name].[contenthash].js' : '[name].js',
-            publicPath: '/'
+            publicPath: options.paths.publicPath
         },
         optimization: {
             splitChunks: {

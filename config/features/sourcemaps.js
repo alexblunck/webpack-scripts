@@ -6,6 +6,10 @@
 const webpack = require('webpack')
 
 module.exports = function(options) {
+    if (!options.sourceMaps) {
+        return
+    }
+
     // Production
     if (options.env.production) {
         return {

@@ -27,7 +27,11 @@ const userConfig = rc('webpack', {
     cssSourceMap: false,
     alias: null,
     zip: false,
-    bugsnagApiKey: null
+    bugsnagApiKey: null,
+    outputPath: 'dist',
+    publicPath: '/',
+    sourceMaps: true,
+    gzip: true
 })
 
 const options = {
@@ -45,10 +49,13 @@ const options = {
     alias: userConfig.alias,
     zip: userConfig.zip,
     bugsnagApiKey: userConfig.bugsnagApiKey,
+    sourceMaps: userConfig.sourceMaps,
+    gzip: userConfig.gzip,
     paths: {
         app: appDir,
         src: path.resolve(appDir, 'src'),
-        output: path.resolve(appDir, 'dist'),
+        output: path.resolve(appDir, userConfig.outputPath),
+        publicPath: userConfig.publicPath,
         resolveInAppNodeModules: request => {
             return require.resolve(request, {
                 paths: [path.resolve(appDir, 'node_modules')]
